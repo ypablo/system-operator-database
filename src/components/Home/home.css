@@ -1,0 +1,10 @@
+.home{
+    margin: 10px 10vh;
+    text-align: left;
+}
+.home-title {
+    border-bottom: 5px solid thistle;
+}
+.home-subtitle {
+    border-bottom: 1px solid thistle;
+}
