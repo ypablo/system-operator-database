@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import "./Home.css";
-import { AiOutlineCaretDown } from 'react-icons/ai';
+import { AiOutlineCaretDown, AiFillCaretUp } from 'react-icons/ai';
 
 //import {Link} from "react-router-dom";
 
 function Home() {
+    const [showLinks, setLinks] = useState(false)
     const [showFrame, setFrame] = useState(false)
 
     const navStyle ={
@@ -17,36 +18,25 @@ function Home() {
         <div className="home">
            <h1 className="home-title">Home</h1>
            <h2 className="home-subtitle">Files</h2>
-
-           <h2 className="home-subtitle">Tools
-            <button className="button-arrow" type="button" onClick={() => setFrame(!showFrame)}><AiOutlineCaretDown/></button></h2>
-                {showFrame ? (
+            <div className="div-outline" onClick={() => setLinks(!showLinks)}>
+                <h2 className="home-subtitle">Tools
+                    {showLinks ? 
+                        <button className="button-arrow-down" type="button" ><AiOutlineCaretDown/></button> 
+                        :
+                        <button className="button-arrow-up" type="button" ><AiFillCaretUp/></button> }
+                </h2>
+            </div>
+                {showLinks ? (
                 <div> 
-                     {/*<iframe title="Modal Embed" className="frames" src={"http://192.168.16.79/cgi-bin/gsm.pl"}/>*/}
+                     {showFrame ? 
+                        ( <div>
+                            <button type="button" onClick={() => setFrame(!showFrame) } className="button-close">Close</button>
+                            <iframe title="Modal Embed" className="frames" src={"http://10.0.64.131:10080/unit_unavailability"}/>
+                        </div> ): 
+                    <p className="frame-link" onClick={()=> setFrame(!showFrame)}>Unit unavailability / Schduling / Forecast management / Unit configuration</p>}    
 
+                    
 
-
-                    <p>
-                        <a 
-                        className="nav-style" 
-                        href="http://10.0.64.131:10080/unit_unavailability" 
-                        target="_blank" rel="noopener noreferrer">Unit unavailability</a>    
-                    </p>
-                    <p>
-                        <a style={navStyle} 
-                        href="http://10.0.64.131:10080/scheduling" 
-                        target="_blank" rel="noopener noreferrer">Scheduling</a>
-                    </p>
-                    <p>
-                        <a style={navStyle} 
-                        href="http://10.0.64.131:10080/forecast_management" 
-                        target="_blank" rel="noopener noreferrer">Forecast management</a>
-                    </p>
-                    <p>
-                        <a style={navStyle} 
-                        href="http://10.0.64.131:10080/unit_configuration" 
-                        target="_blank" rel="noopener noreferrer">Unit configuration</a>
-                    </p>
                     <p>
                         <a style={navStyle} 
                         href="http://reports.vm.martinenergy.local/~iainh/boa.py" 
