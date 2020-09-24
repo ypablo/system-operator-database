@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Nav from "./components/Nav/nav";
-import Footer from "./components/Footer/footer";
-import Home from "./components/Home/home";
+//import Footer from "./components/Footer/footer";
+import Home from "./components/Home/Home";
 import Contacts from "./components/Contacts/contacts";
 import Files from "./components/Files/files";
 import Tools from "./components/Tools/tools";
