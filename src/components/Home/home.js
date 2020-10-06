@@ -26,21 +26,25 @@ function Home() {
                         <button className="button-arrow-up" type="button" ><AiFillCaretUp/></button> }
                 </h2>
             </div>
-                {showLinks ? (
+                {showLinks ?
                 <div> 
                      {showFrame ? 
-                        ( <div>
+                        <div>
                             <button type="button" onClick={() => setFrame(!showFrame) } className="button-close">Close</button>
-                            <iframe title="Modal1" className="frames" src={"http://10.0.64.131:10080/unit_unavailability"}/>
-                        </div> ): 
-                    <p className="frame-link" onClick={()=> setFrame(!showFrame)}>Unit unavailability / Schduling / Forecast management / Unit configuration</p>}    
+                            <iframe title="Frame1" className="frames" src={"http://10.0.64.131:10080/unit_unavailability"}/>
+                        </div>
+                        : 
+                        <p className="frame-link" onClick={()=> setFrame(!showFrame)}>
+                            Unit unavailability / Schduling / Forecast management / Unit configuration
+                        </p>
+                    }    
 
                     
 
                     <p>
                         <a style={navStyle} 
                         href="http://reports.vm.martinenergy.local/~iainh/boa.py" 
-                        target="_blank" rel="noopener noreferrer">BOA</a>
+                        target="_blank" rel="noopener noreferrer">BOA prices</a>
                     </p>
                     <p>
                         <a style={navStyle} 
@@ -77,16 +81,25 @@ function Home() {
                         href="https://10.0.64.23/gp/uuc/" 
                         target="_blank" rel="noopener noreferrer">STOR UUC</a>
                     </p>
-                </div>) : null }
+
+
+                    {showFrame ? 
+                        <div>
+                            <button type="button" onClick={() => setFrame(!showFrame) } className="button-close">Close</button>
+                            <iframe title="Frame10" className="frames" src={"http://192.168.16.74:8888/"}/>
+                        </div>
+                        :           
+                        <p className="frame-link" onClick={()=> setFrame(!showFrame)}>
+                            Battery monitor
+                        </p>
+                    }
+                    
+                </div> 
+                : 
+                null }
            <h2 className="home-subtitle">Contacts</h2>
            <h2 className="home-subtitle">Docs</h2>
 
-           <div>
-                <button type="button" onClick={() => setFrame(!showFrame) } className="button-close">Close</button>
-                {showFrame ? (
-                    <iframe title="Modal Embed" className="frames" src={"http://192.168.16.79/cgi-bin/gsm.pl"}/>
-                ): null}    
-           </div>
         </div>
         
     )
