@@ -4,15 +4,24 @@ import { AiOutlineCaretDown, AiFillCaretUp } from 'react-icons/ai';
 
 //import {Link} from "react-router-dom";
 
+
 function Home() {
     const [showLinks, setLinks] = useState(false)
     const [showFrame, setFrame] = useState(false)
 
-    const navStyle ={
+    const navStyle = {
         color: "black",
         textDecoration: "none",
         padding: "0 25px"
     }
+
+    function handleClick(e) {
+        //e.stopPropagation();
+        //var x = e.currentTarget;
+        //this.setState({showFrame: !showFrame})
+        console.log(e.currentTarget);
+      }
+    
     
     return (
         <div className="home">
@@ -28,7 +37,7 @@ function Home() {
             </div>
                 {showLinks ?
                 <div> 
-                     {showFrame ? 
+                    {showFrame ? 
                         <div>
                             <button type="button" onClick={() => setFrame(!showFrame) } className="button-close">Close</button>
                             <iframe title="Frame1" className="frames" src={"http://10.0.64.131:10080/unit_unavailability"}/>
@@ -39,10 +48,22 @@ function Home() {
                         </p>
                     }    
 
+                    {showFrame ? 
+                        <div>
+                            <button type="button" onClick={(e) => handleClick(e, !showFrame) } className="button-close">Close</button>
+                            <iframe title="Frame1" className="frames" src={"http://reports.vm.martinenergy.local/~iainh/boa.py"}/>
+                        </div>
+                        : 
+                        <p className="frame-link" onClick={()=> setFrame(!showFrame)}>
+                            BOA prices
+                        </p>
+                    }    
                     
 
+
+
                     <p>
-                        <a style={navStyle} 
+                        <a style={navStyle} onClick={(e) => handleClick(e)}
                         href="http://reports.vm.martinenergy.local/~iainh/boa.py" 
                         target="_blank" rel="noopener noreferrer">BOA prices</a>
                     </p>
