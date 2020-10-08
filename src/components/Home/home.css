@@ -24,6 +24,21 @@
 .button-close:hover {
     background-color:#9955bb;
 }
+.buttons-submenu {
+    margin: 5px 0;
+    background-color: #800080;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+.buttons-submenu:hover {
+    background-color:#9955bb;
+}
+
 .frames {  
     width: 100%;
     height: 500px;
